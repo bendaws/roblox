@@ -15,7 +15,7 @@ For new Roblox developers looking for information and history on Roblox's coding
 
 ## Projects
 Along with the games, these projects are also hosted in this repository because they run on Roblox
-- **StatCounter**: A long-term statistic analyzer.
+- **statistics**: A long-term statistic analyzer.
 
 ## Licensing
 All code in this repository (including code from mostly closed-source projects) is released under the MIT License. Under this license, you are free to:
@@ -24,3 +24,50 @@ All code in this repository (including code from mostly closed-source projects) 
 - distribute the code, changed or unchanged
 
 However, the code must be licensed under the same license if changed.
+
+## READMEs
+### Statistics module
+```
+Stats module
+(Last updated: August 27, 2020)
+=======================
+This is really a server statistics tracker. For a server's lifespan, it will track and keep up with any values you want and store them for servers and clients to use.
+
+It is used in Crossroads to provide the server statistics panel and was originally designed for that.
+Here is it's use cases:
+
+- Players, to track a number of kills across the whole server
+- Admins, to track the amount of reports of a specific player in the server
+- Developers, to count runtime errors that are understandable
+
+It is essentially variables++.
+
+Functions
+===============================
+statistics.set(stat_name: string, value: any) -- Sets the given statistic. Returns true or false based on if it was successful.
+
+statistics.get(stat_name: string) -- Gets the value of a statistic. Return the value, or "nil" if not found.
+
+statistics.list() -- Returns the whole statistics list
+
+Usage
+===============================
+When requiring the module, it will return the module itself as well as a unique version identifier.
+It will look like this:
+
+"binx-statistics-iden-X.X.X"
+
+It is useful to make sure that you are using the expected version. You can ignore it completely as well.
+
+Example
+===============================
+local stats_module = require(game.ReplicatedStorage.statistics)
+
+function kill_happened()
+    stats_module.set("kills", stats_module.get("kills") + 1)
+end
+
+function bullet_happened()
+    stats_module.set("bullets fired", stats_module.get("bullets fired") + 1)
+end
+```
