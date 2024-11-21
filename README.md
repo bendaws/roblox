@@ -13,6 +13,10 @@ For new Roblox developers looking for information and history on Roblox's coding
 - **Metallium (2020)**: Infinite shooter
 - **Metallium 2 (2023)**: Infinite shooter (but better)
 
+## Projects
+Along with the games, these projects are also hosted in this repository because they run on Roblox
+- **StatCounter**: A long-term statistic analyzer.
+
 ## Licensing
 All code in this repository (including code from mostly closed-source projects) is released under the MIT License. Under this license, you are free to:
 - use this code in your own games
