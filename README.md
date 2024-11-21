@@ -7,6 +7,7 @@ For new Roblox developers looking for information and history on Roblox's coding
 ## Games Included
 - **Crossroads (2018-2024)**: *Note: This contains portions of code from the project, it is still an active game*. Crossroads is a sandbox shooter game.
 - **sdaorssorC (2020-2024)**: *Note: This contains portions of code from the project, it is still an active game*. Testing place for Crossroads
+- **lolxd (2024)**: Pretty much a clone of *dingus*
 - **Dimension Battle (2022-2024)**: Minigame-style fights with swords
 - **Clockwork VR (2024)**: VR-experiment using spheres as controllers.
 - **Metallium (2020)**: Infinite shooter
