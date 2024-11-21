@@ -16,7 +16,7 @@ local user_ids = {1, game.CreatorId} -- put all admin playerIDs here
 local commands = {
     {
         name = "kick",
-        action = function(args: {string})
+        action = function(_playerExecuting: Player, args: {string})
             -- for people reading, here's where you put your command code
 
             local player: Player = nil
@@ -35,24 +35,15 @@ local commands = {
     },
     {
         name = "tp",
-        action = function(args: {string})
+        action = function(playerExecuting: Player, args: {string})
             -- for people reading, here's where you put your command code
 
             local player: Player = nil
             local reason: string = ""
 
             if game.Players:FindFirstChild(args[2]) then player = game.Players:FindFirstChild(args[2]) else return nil end
-            
-            -- game:GetService("ReplicatedStorage").Remotes.Teleport:FireServer(player)
-            --[[
-                Hello open-source freedom fighters, here is the server side code
 
-                local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-                ReplicatedStorage.Remotes.Teleport.OnServerEvent:Connect(function(plr: Player, toplr: Player)
-                    plr:WaitForChild("HumanoidRootPart").Position = toplr:WaitForChild("HumanoidRootPart").Position
-                end)
-            ]]
+            playerExecuting:WaitForChild("HumanoidRootPart").Position = player:WaitForChild("HumanoidRootPart").Position
         end,
     },
 }
@@ -73,7 +64,7 @@ ChatService.OnIncomingMessage:Connect(function(message: TextChatMessage)
     if messageAcceptable then
         for _, command in commands do
             if command_arguments[1] == command then
-                command.action(command_arguments)
+                command.action(game.Players:GetPlayerByUserId(message.TextSource.UserId), command_arguments)
             end
         end
     else
