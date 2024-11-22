@@ -63,7 +63,7 @@ ChatService.OnIncomingMessage:Connect(function(message: TextChatMessage)
 
     if messageAcceptable then
         for _, command in commands do
-            if command_arguments[1] == command then
+            if command_arguments[1] == command.name then
                 command.action(game.Players:GetPlayerByUserId(message.TextSource.UserId), command_arguments)
             end
         end
